@@ -39,18 +39,12 @@
 
     graphics.setTransform(1,0,0,1,0,0);
     graphics.clearRect(0,0,600,600);
-
-    // TŁO
-    graphics.fillStyle = "#6FEFF2";
-    graphics.fillRect(0,0,600,600);
-
     // GŁOWA
     graphics.fillStyle = "#FF3BEE";
     graphics.strokeStyle = "black";
     graphics.lineWidth = 2;
     graphics.fillOval(300,300,170,90);
     graphics.strokeOval(300,300,170,90);
-
     // --- OCZY ---
     // białka
     graphics.fillStyle = "white";
@@ -60,77 +54,52 @@
     graphics.strokeCircle(265,270,12);
     graphics.fillCircle(335,270,12);
     graphics.strokeCircle(335,270,12);
-
     // źrenice
     graphics.fillStyle = "#666666";
     graphics.fillCircle(265,270,5);
     graphics.fillCircle(335,270,5);
-
     // mały błysk w oku
     graphics.fillStyle = "white";
     graphics.fillCircle(262,268,2);
     graphics.fillCircle(332,268,2);
-
-  // --- UŚMIECH ---
-
-graphics.fillStyle = "black";
-graphics.strokeStyle = "black";
-graphics.lineWidth = 2;
-
-graphics.beginPath();
-
-// start lewy
-graphics.moveTo(270,320);
-
-// dolna krzywa (mocniejszy łuk)
-graphics.quadraticCurveTo(300,355,330,320);
-
-// górna krzywa (płytsza i pod innym kątem)
-graphics.quadraticCurveTo(300,330,270,320);
-
-graphics.closePath();
-graphics.fill();
-
-// --- ZĘBY ---
-
-graphics.fillStyle = "white";
-
-// lewy ząb
-graphics.fillRect(292,324,7,8);
-
-// prawy ząb
-graphics.fillRect(300,324,7,8);
-
-// --- KRESKI NA BRZEGACH UŚMIECHU ---
-
-graphics.strokeStyle = "black";
-graphics.lineWidth = 2;
-
-var r = 12;          // promień łuku
-var angle = 0.35;    // półszerokość łuku
-var tilt = 0.5;      // kąt przechylenia w radianach
-
-// LEWA – odgięta w lewo i w górę
-var midL = Math.PI/2 - tilt;
-var cxL = 270 - r * Math.cos(midL);
-var cyL = 320 - r * Math.sin(midL);
-
-graphics.beginPath();
-graphics.arc(cxL, cyL, r,
-             midL - angle,
-             midL + angle);
-graphics.stroke();
-
-// PRAWA – odgięta w prawo i w górę
-var midR = Math.PI/2 + tilt;
-var cxR = 330 - r * Math.cos(midR);
-var cyR = 320 - r * Math.sin(midR);
-
-graphics.beginPath();
-graphics.arc(cxR, cyR, r,
-             midR - angle,
-             midR + angle);
-graphics.stroke();
+  //usta
+        graphics.beginPath();
+        graphics.fillStyle = "#000000";
+        graphics.strokeStyle = "#000000";
+        graphics.moveTo(230, 315);
+        graphics.bezierCurveTo(230, 350, 370, 350, 370, 315);
+        graphics.bezierCurveTo(330, 400, 270, 400, 230, 315);
+        graphics.fill();
+        graphics.stroke();
+        graphics.moveTo(205, 325);
+        graphics.bezierCurveTo(205, 325, 225, 330, 230, 295);
+        graphics.bezierCurveTo(230, 295, 235, 335, 205, 325);
+        graphics.fill(); 
+        graphics.stroke(); 
+        graphics.moveTo(395, 325);
+        graphics.bezierCurveTo(395, 325, 375, 330, 370, 295);
+        graphics.bezierCurveTo(370, 295, 365, 335, 395, 325);
+        graphics.fill(); 
+        graphics.stroke(); 
+//zęby
+        graphics.beginPath();
+        graphics.strokeStyle = "#000000";
+	    graphics.fillStyle = "#ffffff";
+	    graphics.moveTo(280, 340);
+	    graphics.lineTo(300, 340);
+        graphics.lineTo(300, 362);
+        graphics.lineTo(280, 360);
+        graphics.lineTo(280, 350);
+        graphics.fill();
+	graphics.stroke(); 
+        graphics.moveTo(300, 340);
+        graphics.lineTo(320, 340);
+        graphics.lineTo(320, 362);
+        graphics.lineTo(300, 362);
+        graphics.lineTo(300, 350);
+        graphics.fill();
+	graphics.stroke(); 
+	graphics.closePath();
 }
     
     /**
